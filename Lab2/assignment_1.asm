@@ -1,3 +1,4 @@
+#THIS PROGRAM WILL GET THE SUM OF ALL NON-NEGATIVE NUMBERS <= N
 .text
 	.globl main
 

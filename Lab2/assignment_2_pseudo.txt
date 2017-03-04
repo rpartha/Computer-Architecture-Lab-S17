@@ -1,0 +1,26 @@
+//pseudo-code for assignment 2 in C
+int findLargestPrime(int n)
+  check n >= 100
+  set max_prime = 0;
+  set i = n;
+  set found = 0; //0 = false, 1 = true
+
+  while(not found and i > 2){
+    if(isPrime(i)){
+      found = 1;
+      max_prime = i;
+    }
+    decrement i by 1
+  }
+  return max_prime
+}
+
+int isPrime(int x){ //efficient primality check function
+  set k = 0;
+  set prime = 1; //1 = true, 0 = false
+  if(prime and k <= x/2){
+    if(x mod k == 0) set prime = 0;
+    increment k by 1
+  }
+  return prime;
+}

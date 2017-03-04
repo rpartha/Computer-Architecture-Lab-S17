@@ -1,0 +1,53 @@
+int main(int argc, char *argv[]){
+  int lines = atoi(argv[1]);
+  int half = (lines + 1)/2;
+  int counter;
+
+  for(counter = 1; counter <= half; counter++){
+    int numSpaces = half - counter;
+    int numStars = (2 * counter) - 1;
+    while(numSpaces > 0){
+      printf("."); //append extra periods for spacing
+      numSpaces--;
+    }
+    while(numStars > 0){
+      printf("*");
+      numStars--;
+    }
+    printf("\n");
+  }
+
+  if(lines % 2 == 0){
+    for(counter = counter - 1; counter > 0; counter--){
+      int numSpaces = half - counter;
+      int numStars = (2 * counter) - 1;
+      while(numSpaces > 0){
+        printf("."); //append extra periods for spacing
+        numSpaces--;
+      }
+      while(numStars > 0){
+        printf("*");
+        numStars--;
+      }
+      printf("\n");
+    }
+  }
+
+  else{
+    for(counter = counter - 2; counter > 0; counter--){
+      int numSpaces = half - counter;
+      int numStars = (2 * counter) - 1;
+      while(numSpaces > 0){
+        printf("."); //append extra periods for spacing
+        numSpaces--;
+      }
+      while(numStars > 0){
+        printf("*");
+        numStars--;
+      }
+      printf("\n");
+    }
+  }
+
+  return 0;
+}
