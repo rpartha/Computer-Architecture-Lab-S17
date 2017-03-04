@@ -16,7 +16,7 @@ main:
 loop:
 	add $t3, $t3, $t2  #sum += i
 	addi $t2, $t2, 1 #i = i + 1
-	bge $t2, $t0, exit #i < n
+	bge $t2, $t0, exit #i <= n
 	j loop
 
 exit:
