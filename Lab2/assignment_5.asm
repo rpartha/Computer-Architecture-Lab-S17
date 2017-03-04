@@ -75,13 +75,13 @@ twoAttemptsRemaining:
   li $v0, 4
   la $a0, twoLeftPrompt
   syscall
-  j checkReenteredPassword
+  j reenterPassword
 
 oneAttemptRemaining:
   li $v0, 4
   la $a0, oneLeftPromt
   syscall
-  j checkReenteredPassword
+  j reenterPassword
 
 usedAllAttempts:
   li $v0, 4
