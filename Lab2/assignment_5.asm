@@ -59,7 +59,7 @@ checkReenteredPassword:
 
 hasPassError:
   li $v0, 4
-  la $a0, reentryPrompt
+  la $a0, errorPrompt
   syscall
   j getPassword
 
