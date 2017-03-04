@@ -12,7 +12,6 @@ main:
   li $v0, 5
   syscall
   move $t0, $v0
-
   beqz $t0, END
   addi $t1, $t0, 1
   div $t1, $t1, 2
