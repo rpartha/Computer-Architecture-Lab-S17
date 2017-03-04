@@ -109,7 +109,7 @@ END:
     initial: .space 100
     reentry: .space 100
     setPrompt: .asciiz "Set a password: "
-    errorPrompt: .asciiz "Failed. Please enter a password with size 8 to 12"
+    errorPrompt: .asciiz "Failed. Please enter a password with size 8 to 12\n"
     reentryPrompt: .asciiz "Re-enter the password: "
     successPrompt: .asciiz "Password is setup."
     twoLeftPrompt: .asciiz "Incorrect, you have 2 more chances. Please re-enter the password: "
