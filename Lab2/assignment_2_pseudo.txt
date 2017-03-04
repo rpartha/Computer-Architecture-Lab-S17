@@ -12,14 +12,14 @@ int findLargestPrime(int n)
     }
     decrement i by 1
   }
-  return max_prime
+  return max_prime;
 }
 
 int isPrime(int x){ //efficient primality check function
   set k = 0;
-  set prime = 1; //1 = true, 0 = false
+  set prime = 1; //0 = false, 1 = true
   if(prime and k <= x/2){
-    if(x mod k == 0) set prime = 0;
+    if(x % k == 0) set prime = 0;
     increment k by 1
   }
   return prime;
