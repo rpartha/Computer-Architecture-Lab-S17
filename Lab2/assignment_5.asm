@@ -114,4 +114,4 @@ END:
     successPrompt: .asciiz "Password is setup."
     twoLeftPrompt: .asciiz "Incorrect, you have 2 more chances. Please re-enter the password: "
     oneLeftPromt: .asciiz "Incorrect, you have 1 more chance. Please re-enter the password: "
-    failedPrompt: .asciiz "Incorrect, you have no more chances. Password setup has failed"
+    failedPrompt: .asciiz "Incorrect, you have no more chances. Password setup has failed."
