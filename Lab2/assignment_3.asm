@@ -32,17 +32,17 @@ main:
     li $t3, 2
     div $t0, $t3
     mfhi $t3
-    beq $0, $t3, incr #if remainder is 0, add to even sum
-    bne $0, $t3, incr2
+    beq $0, $t3, sumEven #if remainder is 0, add to even sum
+    bne $0, $t3, sumOdd
     addi $t0, $t0, 1
     j loop
 
-  incr:
+  sumEven:
     add $t2, $t2, $t0
     addi $t0, $t0, 1
     j loop
 
-  incr2:
+  sumOdd:
     add $t4, $t4, $t0
     addi $t0, $t0, 1
     j loop
