@@ -39,6 +39,7 @@ badInput:
   li $v0, 4
   la $a0, error
   syscall
+  j getInput
 
 EXIT:
   li $v0, 4
