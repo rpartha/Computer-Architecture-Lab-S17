@@ -10,44 +10,47 @@ getInput:
   li $v0, 5 #get user input
   syscall
   move $t0, $v0  #n
-  #bge $t0, 100, badInput
+  blt $t0, $0, badInput
+  bgt $t0, 100, badInput
+  li $t1, 2
+  li $t2, 2
+  li $s1, 0
 
-  li $t1, 11 #current prime
-  li $t2, 11 #max prime
-
-#badInput:
-#  li $v0, 4
-#  la $a0, error
-#  syscall
-
-outer_loop:
-  beq $t0, $t1, EXIT
-  li $t3, 2
-  j inner_loop
-
-inner_loop:
-  beq $t3, $t1, outer_loop
-  div $t1, $t3
-  mfhi $t4
-  beq $zero, $t4, otherwise
-  move $t2, $t1
-
-otherwise:
+loop:
+  beq $t1, $t0, EXIT
   addi $t1, 1
-  j outer_loop
+  li $t2, 2
+  checker:
+    bge $t2, $t1, findMax
+    div $t1, $t2
+    li $t9, 0
+    mfhi $t9
+    beq $t9, 0, loop
+    li $s1, 0
+    move $s1, $t1
+    addi $t2, 1
+    j checker
+  findMax:
+    li $s2, 0
+    move $s2, $s1
+    j loop
 
+badInput:
+  li $v0, 4
+  la $a0, error
+  syscall
 
 EXIT:
   li $v0, 4
   la $a0, max
   syscall
-  move $a0, $t2
-	li $v0, 5
+  move $a0, $s2
+	li $v0, 1
   syscall
   li $v0, 10
   syscall
 
   .data
     input: .asciiz "Enter an integer <= 100: "
-    error: .asciiz "Input was > 100"
+    error: .asciiz "Input was out of bounds"
     max: .asciiz "Max Prime: "
