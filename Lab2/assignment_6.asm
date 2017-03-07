@@ -61,7 +61,7 @@ sortFinal:
 
 print: #print array
   lw $t9, array($s0) #load word from array into $t9
-  beq $t8, $t9, printLast  #end loop when $t9 = 0xF
+  beq $t8, $t9, printLast  #end loop when $t9 = 0xFF
   li $v0, 1 #load print string
   add $a0, $t9, $zero
   syscall
@@ -84,14 +84,14 @@ printLast:
 read:
   lw $t9, array($s0) #load word from array into $t9
   beq $t0, $t9, printIndex #end loop if number is found
-  beq $t8, $t9, insert #end loop when $t9 = 0xFFFF
+  beq $t8, $t9, insert #end loop when $t9 = 0xFF
   addi $s0, 4 #increment counter $s0
   j read
 
 insert:
   sw $t0, array($s0) #put new number in array
-  addi $s0, $s0, 4    #s0 = s0+4
-  lw $t8, array($s0)   #load 0xFFFF at end
+  addi $s0, $s0, 4    #s0 += 4
+  lw $t8, array($s0)   #load 0xFF at end
   li $v0, 4  #load print string
   la $a0, error_not_found  #load string address
   syscall
