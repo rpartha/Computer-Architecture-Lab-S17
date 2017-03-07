@@ -7,11 +7,11 @@ main:
 
 size: # to find array size
   lw $t9, array($s7) #load word from array into $t9
-  beq $t8, $t9, size_end #end loop when $t9 = 0xFF
+  beq $t8, $t9, sizeLast #end loop when $t9 = 0xFF
   addi $s7, 4 #increment counter $s0
   j size
 
-size_end:
+sizeLast:
   addi $s7, $s7, -4 #$s0 = size of array*4 -4
 
 ask:
@@ -19,21 +19,21 @@ ask:
 
 size_2: # to find array size
   lw $t9, array($s6) #load word from array into $t9
-  beq $t8, $t9, size_end_2 #end loop when $t9 = 0xFF
+  beq $t8, $t9, sizeLast2 #end loop when $t9 = 0xFF
   addi $s6, 4 #increment counter $s0
   j size_2
 
-size_end_2:
-  addi $s7,$s6,-4 #$s0 = size of array*4 -4
+sizeLast2:
+  addi $s7, $s6, -4 #$s0 = size of array*4 -4
 
   #sort initial array
   li $s2,4 #$s2 = 4
   li $t9,1 #t8 = 0xF
 
 sort:
-  bltz $s7, sort_end  #end when done
+  bltz $s7, sortFinal  #end when done
 
-sort_2:
+sort2:
   bgt $s2, $s7, decrement #back to outer loop
   lw $t0, array($s1)   #load item from array
   lw $t1, array($s2)   #load next intem from array
@@ -44,7 +44,7 @@ sort_2:
 increment:
   addi $s2,$s2,4  #increment $s2
   addi $s1,$s1,4  #increment $s1
-  j sort_2
+  j sort2
 
 decrement:
   addi $s7,$s7,-4 #decrement $s0
@@ -52,7 +52,7 @@ decrement:
   li $s1,0    #$s1 = 0
   j sort
 
-sort_end:
+sortFinal:
   li $v0,4 #load print string
   la $a0, sorted_prompt #load string address
   syscall
@@ -60,7 +60,7 @@ sort_end:
 
 print: #print array
   lw $t9, array($s0) #load word from array into $t9
-  beq $t8, $t9, print_end  #end loop when $t9 = 0xF
+  beq $t8, $t9, printLast  #end loop when $t9 = 0xF
   li $v0, 1 #load print string
   add $a0, $t9, $zero
   syscall
@@ -70,7 +70,7 @@ print: #print array
   addi $s0, 4 #increment counter $s0
   j print
 
-print_end:
+printLast:
   li $v0, 4  #load print string
   la $a0, enter_prompt  #load string address
   syscall
@@ -82,12 +82,12 @@ print_end:
 
 read:
   lw $t9, array($s0) #load word from array into $t9
-  beq $t0, $t9, print_index #end loop if number is found
-  beq $t8, $t9, read_end #end loop when $t9 = 0xFFFF
+  beq $t0, $t9, printIndex #end loop if number is found
+  beq $t8, $t9, insert #end loop when $t9 = 0xFFFF
   addi $s0, 4 #increment counter $s0
   j read
 
-read_end:
+insert:
   sw $t0, array($s0) #put new number in array
   addi $s0, $s0, 4    #s0 = s0+4
   lw $t8, array($s0)   #load 0xFFFF at end
@@ -96,7 +96,7 @@ read_end:
   syscall
   j ask
 
-print_index:
+printIndex:
   srl $s4, $s0, 2 #s4 = s0/4
   li $v0, 4  #load print string
   la $a0, index_prompt #load string address
