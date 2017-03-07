@@ -1,4 +1,4 @@
-#assignment 4
+#assignment 4 -- console freezes upon execition..... :/
 .text
   .globl main
 
@@ -13,7 +13,7 @@ main:
   li $v0, 5
   syscall
   move $t0, $v0
-  beqz $t0, END
+  beqz $t0, END #cannot be 0
   addi $t1, $t0, 1
   div $t1, $t1, 2
   j top
