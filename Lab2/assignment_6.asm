@@ -1,3 +1,4 @@
+#assignment 6
 .text 0x00400000 #starting memmory address
   .globl main
 

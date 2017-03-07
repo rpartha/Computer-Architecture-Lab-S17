@@ -1,6 +1,6 @@
+#assignment 5
 .text
   .globl main
-
 
 main:
   li $s0, 8 #pass length must be minimum 8
