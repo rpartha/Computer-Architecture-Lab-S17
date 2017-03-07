@@ -9,7 +9,7 @@ main:
     li $v0, 5
     syscall
     move $t0, $v0
-    blt $t0, $zero, printError
+    blt $t0, 1, printError
     bgt $t0, 1000, printError
 
   getSecondNum: #recieve second number
@@ -19,7 +19,7 @@ main:
     li $v0, 5
     syscall
     move $t1, $v0
-    blt $t1, $zero, printError2
+    blt $t1, 1, printError2
     bgt $t1, 1000, printError2
 
     bgt $t0, $t1, switch
