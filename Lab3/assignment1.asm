@@ -37,8 +37,8 @@ add $a0, $zero, $t5 #load $t5 int $a0
 syscall
 
 END:
-li $v0,10
-syscall
+  li $v0,10
+  syscall
 
 .data
 input: .asciiz "Input three numbers: "
