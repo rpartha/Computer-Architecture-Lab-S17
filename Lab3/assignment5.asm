@@ -28,8 +28,8 @@ mov.s $f3, $f0 #move input to f3 = length
 
 li.s $f4, 2.0 #f4 = 2.0
 
-mul.s $f1,$f1,$f2 #f5 = length * width
-mul.s $f2, $f1, $f3 #f6 = length * width * height
+mul.s $f16, $f1, $f2 #f16 = length * width
+mul.s $f17, $f1, $f3 #f17 = length * width * height
 
 li $v0,4 #load print string
 la $a0, volume #load string'volume'
