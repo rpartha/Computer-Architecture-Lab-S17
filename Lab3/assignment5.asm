@@ -28,8 +28,8 @@ mov.s $f3, $f0 #move input to f3 = length
 
 li.s $f4, 2.0 #f4 = 2.0
 
-mul.s $f5,$f1,$f2 #f5 = length * width
-mul.s $f6, $f5, $f3 #f6 = length * width * height
+mul.s $f1,$f1,$f2 #f5 = length * width
+mul.s $f2, $f1, $f3 #f6 = length * width * height
 
 li $v0,4 #load print string
 la $a0, volume #load string'volume'
@@ -38,7 +38,7 @@ syscall
 li $v0,2 #load print float
 syscall #print volume in f12
 
-li $v0,10
+li $v0, 10
 syscall
 
 .data
