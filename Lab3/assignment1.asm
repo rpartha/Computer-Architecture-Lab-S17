@@ -3,13 +3,13 @@
 .globl main
 
 main:
-li $v0, 4    #load print string
+li $v0, 4 #load print string
 la $a0, input #load string input
 syscall
 
 li $v0, 5 #read int
 syscall
-move $t0, $v0    #move result to t0
+move $t0, $v0 #move result to t0
 
 li $v0, 5 #read int
 syscall
@@ -36,6 +36,7 @@ li $v0,1 #load print integer
 add $a0, $zero, $t5 #load $t5 int $a0
 syscall
 
+END:
 li $v0,10
 syscall
 
