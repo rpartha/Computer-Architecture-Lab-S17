@@ -19,7 +19,7 @@ loop:
   c.lt.s $f2, $f1 #add to sum if less than or equal to input
   bc1f work #if not less than input, skip that entry in the array
   mul.s $f3, $f2, $f2 #square input in array
-  add.s $f12, $f12, $f3 #$f12 = $f12 + $f3 <--> sums of squares
+  add.s $f12, $f12, $f3 #$f12 = $f12 + $f3 = sums of squares
   work:
   add $s0, $s0, $s1 #$s0 = $s0 + 4 #advance array index
 
@@ -51,4 +51,4 @@ syscall
   input: .asciiz "\nInput a number: "
   sum: .asciiz "\nThe answer is: "
   small: .asciiz "\nNo entries in array is less than user input."
-  array: .float 12.5, 2.34,3.59, 4.76, 10.67, 3.54
+  array: .float 12.5, 2.34,3.59, 4.76, 10.67, 3.54 #hard-coded array
