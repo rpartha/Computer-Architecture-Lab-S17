@@ -4,19 +4,19 @@
 .globl main
 
 main:
-li $v0,4 #load print string
+li $v0, 4 #load print string
 la $a0, length #load 'length' string
 syscall
 
-li $v0,6 #read float
+li $v0, 6 #read float
 syscall
 mov.s $f1, $f0 #move input to f1 = length
 
-li $v0,4 #load print string
+li $v0, 4 #load print string
 la $a0, width #load 'width' string
 syscall
 
-li $v0,6 #read float
+li $v0, 6 #read float
 syscall
 mov.s $f2, $f0 #move input to f2 = width
 
@@ -31,10 +31,27 @@ mov.s $f3, $f0 #move input to f3 = length
 li.s $f4, 2.0 #f4 = 2.0
 
 mul.s $f16, $f1, $f2 #f16 = length * width
-mul.s $f17, $f1, $f3 #f17 = length * width * height
+mul.s $f17, $f16, $f3 #f17 = length * width * height
 
-li $v0,4 #load print string
+mov.s $f12, $f17
+
+li $v0, 4 #load print string
 la $a0, volume #load string'volume'
+syscall
+
+li $v0,2 #load print float
+syscall #print volume in f12
+
+mul.s $f16, $f1, $f2 #$f16 = length * width
+mul.s $f17, $f1, $f3 #$f17 = length * height
+mul.s $f18, $f2, $f3 #$f18 = width * height
+add.s $f19, $f16, $f17 #$f19 = l*w + l*h
+add.s $f20, $f19, $f18 #$f20 = l*w + l*h + w*h
+
+mov.s $f12, $f20
+
+li $v0, 4 #load print string
+la $a0, area #load string 'area'
 syscall
 
 li $v0,2 #load print float
