@@ -62,7 +62,7 @@ syscall
 
 .data
   length: .asciiz "Input the length: "
-  width:  .asciiz "\nInput the width: "
-  height: .asciiz "\nInput the height: "
-  volume: .asciiz "\nThe volume of the cuboid: "
+  width:  .asciiz "Input the width: "
+  height: .asciiz "Input the height: "
+  volume: .asciiz "The volume of the cuboid: "
   area:   .asciiz "\nThe surface area of the cuboid: "
