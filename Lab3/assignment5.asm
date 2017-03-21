@@ -45,8 +45,8 @@ syscall #print volume in f12
 mul.s $f16, $f1, $f2 #$f16 = length * width
 mul.s $f17, $f1, $f3 #$f17 = length * height
 mul.s $f18, $f2, $f3 #$f18 = width * height
-add.s $f19, $f16, $f17 #$f19 = l*w + l*h
-add.s $f20, $f19, $f18 #$f20 = l*w + l*h + w*h
+add.s $f19, $f16, $f17 #$f19 = length*width + length*height
+add.s $f20, $f19, $f18 #$f20 = lenth*width + length*height + width*height
 
 mov.s $f12, $f20
 
