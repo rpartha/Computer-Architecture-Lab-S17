@@ -16,13 +16,12 @@ loop:
 l.s $f2, array($s0) # load number from array into $f2
 c.le.s $f2, $f31 #endloop if reach end of array
 bc1t loop_end
-c.le.s $f2, $f1 #add to sum if less than or equal to input
-bc1t work
-
-work:
+c.lt.s $f2, $f1 #do not add to sum if less than or equal to input
+bc1f work
 add.s $f12, $f12, $f2 #$f12 = $f12+$f2 f12 is sum
-
+work:
 add $s0, $s0, $s1 #$s0 = $s0 + 4
+
 j loop
 
 loop_end:
@@ -30,7 +29,7 @@ c.le.s $f12, $f31  #if sum is zero, than number too small
 bc1t END
 
 li $v0, 4  #load print string
-la $a0, sum #load string'sum'
+la $a0,sum #load string'sum'
 syscall
 
 li $v0, 2 #load print float
@@ -41,7 +40,7 @@ syscall
 
 END:
 li $v0, 4 #load print string
-la $a0, small #load string'big'
+la $a0, small #load string 'small'
 syscall
 
 li $v0, 10
