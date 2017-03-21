@@ -13,14 +13,15 @@ li $s1, 4 #$s0 = 4
 li.s $f31, 0.0 #$f31 = 0
 
 loop:
-l.s $f2, array($s0) # load number from array into $f2
-c.le.s $f2, $f31 #endloop if reach end of array
-bc1t loop_end
-c.lt.s $f2, $f1 #do not add to sum if less than or equal to input
-bc1f work
-add.s $f12, $f12, $f2 #$f12 = $f12+$f2 f12 is sum
-work:
-add $s0, $s0, $s1 #$s0 = $s0 + 4
+  l.s $f2, array($s0) # load number from array into $f2
+  c.le.s $f2, $f31 #endloop if reach end of array
+  bc1t loop_end
+  c.lt.s $f2, $f1 #do not add to sum if less than or equal to input
+  bc1f work
+  mul.s $f3, $f2, $f2
+  add.s $f12, $f12, $f3 #$f12 = $f12^2 +$f2^2 f12 is sum of squares
+  work:
+  add $s0, $s0, $s1 #$s0 = $s0 + 4
 
 j loop
 
