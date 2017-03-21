@@ -5,7 +5,7 @@ li $v0, 4 #load print string
 la $a0, input #load string 'input'
 syscall
 
-li $v0,6  #read float
+li $v0, 6  #read float
 syscall
 mov.s $f1, $f0 #move input to f1 = input
 
@@ -26,7 +26,7 @@ loop:
 j loop
 
 loop_end:
-c.le.s $f12, $f31  #if sum is zero, than number too small
+c.le.s $f12, $f31  #if sum is zero, than there are no numbers less than input
 bc1t END
 
 li $v0, 4  #load print string
@@ -50,5 +50,5 @@ syscall
 .data
   input: .asciiz "\nInput a number: "
   sum: .asciiz "\nThe answer is: "
-  small: .asciiz "\nNumber is too small."
+  small: .asciiz "\nNo entries in array is less than user input."
   array: .float 12.5, 2.34,3.59, 4.76, 10.67, 3.54
