@@ -16,4 +16,4 @@ This lab serves to introduce us to pipelined processors and how they work. Furth
 Please refer to *quad_sol_reordered.asm* for this assignment.
 
 First block:
-![First Block]("https://github.com/rpartha/Computer-Architecture-Lab-S17/Lab4/block1.png")
+![First Block](https://github.com/rpartha/Computer-Architecture-Lab-S17/blob/master/Lab4/block1.PNG)
