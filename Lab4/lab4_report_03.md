@@ -19,22 +19,26 @@ j Print  |  x | x  |  x | 0  | 0  | 0  |  0 |  00
 
 ## Assignment 4
 
-Please refer to *quad_sol_reordered.asm* for this assignment.
+1. Please refer to *quad_sol_reordered.asm* for this assignment.
 
-First block:  
-![First Block](block1.PNG)
+  First block:  
+  ![First Block](block1.PNG)
 
-First block [REORDERED]:  
-![First Block REORDERED](block1new.PNG)
+  First block [REORDERED]:  
+  ![First Block REORDERED](block1new.PNG)
 
-The reordered first block would take 12 cycles < 14 cycles = original first block.
+  The reordered first block would take 12 cycles < 14 cycles = original first block.
 
-Second block:  
-![Second Block](block2.PNG)
+  Second block:  
+  ![Second Block](block2.PNG)
 
-Second block [REORDERED]:  
-![Second Block REORDERED](block2new.PNG)
+  Second block [REORDERED]:  
+  ![Second Block REORDERED](block2new.PNG)
 
-The reordered second block would take 10 cycles < 11 cycles = original second block.
+  The reordered second block would take 10 cycles < 11 cycles = original second block.
 
-The conclusion can be made drawn that 3 clock cycles were saved overall, and the reordering of the code did not affect the output at all.
+  The conclusion can be made drawn that 3 clock cycles were saved overall, and the reordering of the code did not affect the output at all.
+
+2. If instruction-forwarding was suported, then the program execution would become much faster due to the fact that the amount of stalling in the code would be minimzed which would reduce the amount of clock cycles required.    
+
+  Consider, for example, the first 5 lines of the First Block [REORDERED]. One can observe that oth $t4 and $t5 would be ready by the time its execution phase is completed. Hence, the third instruction can use $t5 a lot sooner as opposed to stalling back until the write-back phase. Such is the case for other areas within the code. 
