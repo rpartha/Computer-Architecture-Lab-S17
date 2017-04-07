@@ -95,23 +95,56 @@ bne $t0, $zero, loop
 1. Please refer to *quad_sol_reordered.asm* for this assignment.
 
   First block:  
-  <img src = "https://github.com/rpartha/Computer-Architecture-Lab-S17/blob/master/Lab4/images/block1.PNG">
+  ```MIPS
+  li		$t0, 2       # Load constant number to integer register
+  mul		$t4,$t2,$t2  # t4 = t2*t2, where t2 holds b
+  mul		$t5,$t1,$t3	 # t5 = t1*t3, where t1 holds a and t3 holds c
+  mul		$t5,$t5,4    # Multiply value of s0 with 4, creating 4*a*c
+  sub		$t6,$t4,$t5  # Calculate D = b^2-4*a*c
+  tlt		$t6,$0		 # If D is less than 0 issue an exception
+  ```
 
   First block [REORDERED]:  
-  <img src = "https://github.com/rpartha/Computer-Architecture-Lab-S17/blob/master/Lab4/images/block1new.PNG">
+  ```MIPS
+  #li		$t0, 2       # Load constant number to integer register
+  mul		$t5,$t1,$t3	 # t5 = t1*t3, where t1 holds a and t3 holds c [REORDERED]
+  mul		$t4,$t2,$t2  # t4 = t2*t2, where t2 holds b
+  #mul		$t5,$t1,$t3	 # t5 = t1*t3, where t1 holds a and t3 holds c
+  mul		$t5,$t5,4    # Multiply value of s0 with 4, creating 4*a*c
+  sub		$t6,$t4,$t5  # Calculate D = b^2-4*a*c
+  tlt		$t6,$0		 # If D is less than 0 issue an exception
+  ```
 
   The reordered first block would take 12 cycles < 14 cycles = original first block.
 
   Second block:  
-  <img src = "https://github.com/rpartha/Computer-Architecture-Lab-S17/blob/master/Lab4/images/block2.PNG">
+
+  ```MIPS
+  neg		$s2,$t2		 # Calculate -b and save it to s2
+  add		$s3,$s2,$s0  # Calculate -b+sqrt(D) and save it to s3
+  sub		$s4,$s2,$s0  # Calculate -b-sqrt(D) and save it to s4
+  mul		$s5,$t1,$t0  # Calculate 2*a and save it to s5
+  div		$s6,$s3,$s5  # Calculate first integer solution
+  div		$s7,$s4,$s5  # Calculate second integer solution
+  ```
 
   Second block [REORDERED]:  
-  <img src = "https://github.com/rpartha/Computer-Architecture-Lab-S17/blob/master/Lab4/images/block2new.PNG">
+
+  ```MIPS
+  neg		$s2,$t2		 # Calculate -b and save it to s2
+  li		$t0, 2       # Load constant number to integer register [REORDERED]
+  add		$s3,$s2,$s0  # Calculate -b+sqrt(D) and save it to s3
+  mul		$s5,$t1,$t0  # Calculate 2*a and save it to s5 [REORDERED]
+  sub		$s4,$s2,$s0  # Calculate -b-sqrt(D) and save it to s4
+  #mul		$s5,$t1,$t0  # Calculate 2*a and save it to s5
+  div		$s6,$s3,$s5  # Calculate first integer solution
+  div		$s7,$s4,$s5  # Calculate second integer solution
+  ```
 
   The reordered second block would take 10 cycles < 11 cycles = original second block.
 
   The conclusion can be made drawn that 3 clock cycles were saved overall, and the reordering of the code did not affect the output at all.
-
+<br></br>
 2. If instruction-forwarding was suported, then the program execution would become much faster due to the fact that the amount of stalling in the code would be minimzed which would therefore reduce the amount of clock cycles required.
 Consider, for example, the first 5 lines of the First Block [REORDERED]. One can observe that both $t4 and $t5 would be ready by the time its execution phase is completed. Hence, the third instruction can use $t5 a lot sooner as opposed to stalling back until the write-back phase. Such is the case for other areas within the code.
 
