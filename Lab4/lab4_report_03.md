@@ -95,7 +95,7 @@ bne $t0, $zero, loop
 1. Please refer to *quad_sol_reordered.asm* for this assignment.
 
   First block:  
-  ![First Block](block1.png)
+  <img src = "/images/block1.PNG">
 
   First block [REORDERED]:  
   <img src = "/images/block1new.PNG">
@@ -103,10 +103,10 @@ bne $t0, $zero, loop
   The reordered first block would take 12 cycles < 14 cycles = original first block.
 
   Second block:  
-  ![Second Block](block2.png)
+  <img src = "/images/block2.PNG">
 
   Second block [REORDERED]:  
-  ![Second Block REORDERED](block2new.png)
+  <img src = "/images/block2new.PNG">
 
   The reordered second block would take 10 cycles < 11 cycles = original second block.
 
