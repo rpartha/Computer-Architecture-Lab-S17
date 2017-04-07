@@ -95,18 +95,18 @@ bne $t0, $zero, loop
 1. Please refer to *quad_sol_reordered.asm* for this assignment.
 
   First block:  
-  <img src = "/images/block1.PNG">
+  <img src = "https://github.com/rpartha/Computer-Architecture-Lab-S17/blob/master/Lab4/images/block1.PNG">
 
   First block [REORDERED]:  
-  <img src = "/images/block1new.PNG">
+  <img src = "https://github.com/rpartha/Computer-Architecture-Lab-S17/blob/master/Lab4/images/block1new.PNG">
 
   The reordered first block would take 12 cycles < 14 cycles = original first block.
 
   Second block:  
-  <img src = "/images/block2.PNG">
+  <img src = "https://github.com/rpartha/Computer-Architecture-Lab-S17/blob/master/Lab4/images/block2.PNG">
 
   Second block [REORDERED]:  
-  <img src = "/images/block2new.PNG">
+  <img src = "https://github.com/rpartha/Computer-Architecture-Lab-S17/blob/master/Lab4/images/block2new.PNG">
 
   The reordered second block would take 10 cycles < 11 cycles = original second block.
 
