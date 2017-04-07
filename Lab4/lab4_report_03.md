@@ -6,6 +6,8 @@ This lab serves to introduce us to pipelined processors and how they work. Furth
 (rather how to prevent them), as well as how to handle exceptions and interrupts.
 
 ## Assignment 1
+Description: Place each instruction in approppriate control signal based on functionality. Validate each control signal using binary digits 0 and 1.
+
 Instruction  | RegDst  | ALUSrc  | Mem2Reg  | RegWrite  | MemRead  | MemWrite  | Branch  |  ALUOp
 :--:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:--:
 addi $t0, $t0, 10  | 0  | 1  | 0  | 1  | 0  | 0  | 0  | 00
@@ -14,6 +16,8 @@ bne $t2, $t0, QUIT  | x  | 0  | x  | 0  | 0  |  0 |  1 |  01
 xor $s0, $t1, $t2  |  1 | 0  |  x | 1  |  0 | 0  |  0 | 10
 j Print  |  x | x  |  x | 0  | 0  | 0  |  0 |  00
 ## Assignment 2
+Description: Each instruction goes through a series of operations prior to execution. If that particular instruction was dependent upon some instruction before it, then a delay was caused. The delay will then be minimized.
+
 This assignment refers to the following instructions:  
 ```MIPS
 A: lw $t0,0($t3)  
@@ -53,6 +57,8 @@ add $t5, $t5, $t4  |   |   |   |   | IF  | **STALL**  | **STALL**  | **STALL**  
 
 ## Assignment 3
 
+Description: To find and minimize hazards using NOP instructions.
+
 This assigment is based off of the following code:
 
 ```MIPS
@@ -83,6 +89,8 @@ bne $t0, $zero, loop
 4. The use of instruction forwarding would mean that fewer amount of instructions would be needed to get data from the previous steps. More properly phrased, *the number of required cycles would be reduced as a result of this*.
 
 ## Assignment 4
+
+Description: The effect of reordering code on program execution.
 
 1. Please refer to *quad_sol_reordered.asm* for this assignment.
 
