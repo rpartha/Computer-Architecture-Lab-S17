@@ -6,13 +6,13 @@ This lab serves to introduce us to pipelined processors and how they work. Furth
 (rather how to prevent them), as well as how to handle exceptions and interrupts.
 
 ## Assignment 1
-Control Unit  |  RegDst |  ALUSrc | MemToReg  |  RegWrite | MemRead  | MemWrite  | Branch  |  ALUOp |  
+Control Unit  |  RegDst |  ALUSrc | MemToReg  |  RegWrite | MemRead  | MemWrite  | Branch  |  ALUOp |  Jump |
 --|---|---|---|---|---|---|---|---|--
-addi $t0, $t0, 10  | 0  | 1  | 0  | 1  | 0  | 0  | 0  | 00  
-sw $t0, 32($s0)  | x  | 1  | x  | 0  | 0  | 1  | 0  |  00
-bne $t2, $t0, QUIT  | x  | 0  | x  | 0  | 0  | 0  | 1  | 01   
-xor $s0, $t1, $t2  | 1  | 0  | x  | 1  | 0  | 0  | 0  | 00   
-j Print  | x  | x  | x  | 0  | 0  | 0  | 0  | 00    
+addi $t0, $t0, 10  |   |   |   |   |   |   |   |   |  
+sw $t0, 32($s0)  |   |   |   |   |   |   |   |   |  
+bne $t2, $t0, QUIT  |   |   |   |   |   |   |   |   |  
+xor $s0, $t1, $t2  |   |   |   |   |   |   |   |   |  
+j Print  |   |   |   |   |   |   |   |   |  
 
 ## Assignment 2
 
