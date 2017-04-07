@@ -30,15 +30,23 @@ $t1  | 5  |  10
 $t2  | 8  |  8
 $t3  | 2  |  -8
 $t4  | 4 |  8
-$t5  | 1 |  9
+$t5  | 1 |  9  
 
 2.
 
-3.
+Instruction/Cycle  | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  | 10  | 11  |  12
+:--:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:--:
+lw $t0, 0($t3)  | IF  | ID  | EX  | MEM  | WB  |   |   |   |   |   |   |  
+add $t1, $t0, $t2  |   | IF  | **STALL**  | **STALL**  | ID  | EX  | MEM  | WB  |   |   |   |  
+sub $t3, $t3, $t1  |   |   | IF  | **STALL**  | **STALL**  | **STALL**  | **STALL**  | ID  | EX  | MEM  | WB |  
+addi $t4, $t4, 4  |   |   |   | IF  | **STALL**  | ID  | EX  |  MEM | WB  |   |   |  
+add $t5, $t5, $t4  |   |   |   |   | IF  | **STALL**  | **STALL**  | **STALL**  | ID  |  EX | MEM  |  WB
 
-4. Instructions can be reordered to reduce cycles. For example, instruction D can be moved to the beginning of the code as none of the prior instructions depend on it.
+3. Instructions can be reordered to reduce cycles. For example, instruction D can be moved to the beginning of the code as none of the prior instructions depend on it.
 
-5. Overall, the amount of cycles would be lessened since the next instruction does not have to wait until after the previous instruction is finished with the write-back to get the appropriate value. Instead, it can just access the result from wherever the execution point of the result. For example, if the instruction is add or sub, then the next instruction’s ID can start in the same clock cycle as that instruction’s EX. If the instruction is load, then the next instruction’s ID can start in the same clock cycle as that instruction’s MEM because it needs to access the memory for load.
+4. Overall, the amount of cycles would be lessened as a result of instruction forwarding. since the next instruction does not have to wait until after the previous instruction is finished with the write-back to get the appropriate value. Instead, it can just access the result from wherever the execution point of the result.
+
+5. For example, if the instruction is add or sub, then the next instruction’s ID can start in the same clock cycle as that instruction’s EX. If the instruction is load, then the next instruction’s ID can start in the same clock cycle as that instruction’s MEM because it needs to access the memory for load.
 
 
 ## Assignment 3
@@ -70,4 +78,4 @@ Consider, for example, the first 5 lines of the First Block [REORDERED]. One can
 
 ## Conclusion
 
-This lab taught us about pipelining processors as well as how to "remove" the hazards that exist within them. Also, we learned about exceptions and interrupts. To conclude, as a whole, this lab would be considered a success. 
+This lab taught us about pipelining processors as well as how to "remove" the hazards that exist within them. Also, we learned about exceptions and interrupts. To conclude, as a whole, this lab would be considered a success.
