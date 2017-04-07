@@ -13,4 +13,4 @@ Arithmetic Operations (Basic and float) and Combinatorial Logic
 CPU Structure, Pipeline Programming and Hazards, Exceptions and Interrupts
 
 ## Lab 5
-Not yet!
+Exceptions and Interrupts
