@@ -67,3 +67,7 @@ $t5  | 1 |  9
 
 2. If instruction-forwarding was suported, then the program execution would become much faster due to the fact that the amount of stalling in the code would be minimzed which would therefore reduce the amount of clock cycles required.
 Consider, for example, the first 5 lines of the First Block [REORDERED]. One can observe that both $t4 and $t5 would be ready by the time its execution phase is completed. Hence, the third instruction can use $t5 a lot sooner as opposed to stalling back until the write-back phase. Such is the case for other areas within the code.
+
+## Conclusion
+
+This lab taught us about pipelining processors as well as how to "remove" the hazards that exist within them. Also, we learned about exceptions and interrupts. To conclude, as a whole, this lab would be considered a success. 
