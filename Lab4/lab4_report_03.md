@@ -6,7 +6,7 @@ This lab serves to introduce us to pipelined processors and how they work. Furth
 (rather how to prevent them), as well as how to handle exceptions and interrupts.
 
 ## Assignment 1
-Description: Place each instruction in approppriate control signal based on functionality. Validate each control signal using binary digits 0 and 1.
+**Description**: _Place each instruction in approppriate control signal based on functionality. Validate each control signal using binary digits 0 and 1._
 
 Instruction  | RegDst  | ALUSrc  | Mem2Reg  | RegWrite  | MemRead  | MemWrite  | Branch  |  ALUOp
 :--:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:--:
@@ -16,7 +16,7 @@ bne $t2, $t0, QUIT  | x  | 0  | x  | 0  | 0  |  0 |  1 |  01
 xor $s0, $t1, $t2  |  1 | 0  |  x | 1  |  0 | 0  |  0 | 10
 j Print  |  x | x  |  x | 0  | 0  | 0  |  0 |  00
 ## Assignment 2
-Description: Each instruction goes through a series of operations prior to execution. If that particular instruction was dependent upon some instruction before it, then a delay was caused. The delay will then be minimized.
+**Description**: _Each instruction goes through a series of operations prior to execution. If that particular instruction was dependent upon some instruction before it, then a delay was caused. The delay will then be minimized._
 
 This assignment refers to the following instructions:  
 ```MIPS
@@ -57,7 +57,7 @@ add $t5, $t5, $t4  |   |   |   |   | IF  | **STALL**  | **STALL**  | **STALL**  
 
 ## Assignment 3
 
-Description: To find and minimize hazards using NOP instructions.
+**Description**: _To find and minimize hazards using NOP instructions._
 
 This assigment is based off of the following code:
 
@@ -90,7 +90,7 @@ bne $t0, $zero, loop
 
 ## Assignment 4
 
-Description: The effect of reordering code on program execution.
+**Description**: _The effect of reordering code on program execution._
 
 1. Please refer to *quad_sol_reordered.asm* for this assignment.
 
