@@ -6,6 +6,13 @@ This lab serves to introduce us to pipelined processors and how they work. Furth
 (rather how to prevent them), as well as how to handle exceptions and interrupts.
 
 ## Assignment 1
+Control Unit  |  RegDst |  ALUSrc | MemToReg  |  RegWrite | MemRead  | MemWrite  | Branch  |  ALUOp |  Jump |
+--|---|---|---|---|---|---|---|---|--
+addi $t0, $t0, 10  |   |   |   |   |   |   |   |   |  
+sw $t0, 32($s0)  |   |   |   |   |   |   |   |   |  
+bne $t2, $t0, QUIT  |   |   |   |   |   |   |   |   |  
+xor $s0, $t1, $t2  |   |   |   |   |   |   |   |   |  
+j Print  |   |   |   |   |   |   |   |   |  
 
 ## Assignment 2
 
@@ -31,4 +38,4 @@ Second block [REORDERED]:
 
 The reordered second block would take 10 cycles < 11 cycles = original second block.
 
-The conclusion can be made drawn that 3 clock cycles were saved overall, and the reordering of the code did not affect the output at all. 
+The conclusion can be made drawn that 3 clock cycles were saved overall, and the reordering of the code did not affect the output at all.
