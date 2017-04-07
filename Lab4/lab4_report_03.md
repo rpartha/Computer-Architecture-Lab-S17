@@ -15,11 +15,13 @@ xor $s0, $t1, $t2  |  1 | 0  |  x | 1  |  0 | 0  |  0 | 00
 j Print  |  x | x  |  x | 0  | 0  | 0  |  0 |  00
 ## Assignment 2
 This assignment refers to the following instructions:  
-A: *lw $t0,0($t3)*  
-B: *add $t1, $t0, $t2*  
-C: *sub $t3, $t3, $t1*  
-D: *addi $t4, $t4, 4*  
-E: *add $t5, $t5, $t4*  
+```MIPS
+A: lw $t0,0($t3)  
+B: add $t1, $t0, $t2  
+C: sub $t3, $t3, $t1  
+D: addi $t4, $t4, 4  
+E: add $t5, $t5, $t4  
+```
 
 1. Values of the registers after running the instructions hazard-processor-handling.
 
@@ -42,7 +44,7 @@ sub $t3, $t3, $t1  |   |   | IF  | **STALL**  | **STALL**  | **STALL**  | **STAL
 addi $t4, $t4, 4  |   |   |   | IF  | **STALL**  | ID  | EX  |  MEM | WB  |   |   |  
 add $t5, $t5, $t4  |   |   |   |   | IF  | **STALL**  | **STALL**  | **STALL**  | ID  |  EX | MEM  |  WB  
 
-3. Instructions can be reordered to reduce cycles. For example, instruction D can be moved to the beginning of the code as none of the prior instructions depend on it.
+3. Instructions can be reordered to reduce cycles. Also, it will reduce the need to depend on registers as well as the need for instruction delay. For example, instruction D can be moved to the beginning of the code as none of the prior instructions depend on it.
 
 4. Overall, the amount of cycles would be lessened as a result of instruction forwarding. since the next instruction does not have to wait until after the previous instruction is finished with the write-back to get the appropriate value. Instead, it can just access the result from wherever the execution point of the result.
 
@@ -50,6 +52,35 @@ add $t5, $t5, $t4  |   |   |   |   | IF  | **STALL**  | **STALL**  | **STALL**  
 
 
 ## Assignment 3
+
+This assigment is based off of the following code:
+
+```MIPS
+addiu $t0, 3
+loop: addiu $t1, 1
+sub $t0, $t0, $t1
+bne $t0, $zero, loop
+```
+
+1. It would take **14 cycles** for the code to run without handling hazards.
+
+2. I was not able to finish this. 
+
+3. Program rewritten using NOP instructions:
+
+    ```MIPS
+    addiu $t0, 3
+    #NOP Instruction
+    loop: addiu $t1, 1
+    #NOP Instruction
+    #NOP Instruction
+    sub $t0, $t0, $t1
+    #NOP Instruction
+    #NOP Instruction
+    bne $t0, $zero, loop
+    ```
+
+4. The use of instruction forwarding would mean that fewer amount of instructions would be needed to get data from the previous steps. More properly phrased, *the number of required cycles would be reduced as a result of this*.
 
 ## Assignment 4
 
