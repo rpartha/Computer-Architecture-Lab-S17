@@ -20,3 +20,15 @@ First block:
 
 First block [REORDERED]:  
 ![First Block REORDERED](block1new.PNG)
+
+The reordered first block would take 12 cycles < 14 cycles = original first block.
+
+Second block:  
+![Second Block](block2.PNG)
+
+Second block [REORDERED]:  
+![Second Block REORDERED](block2new.PNG)
+
+The reordered second block would take 10 cycles < 11 cycles = original second block.
+
+The conclusion can be made drawn that 3 clock cycles were saved overall, and the reordering of the code did not affect the output at all. 
