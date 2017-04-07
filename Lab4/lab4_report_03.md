@@ -11,7 +11,7 @@ Instruction  | RegDst  | ALUSrc  | Mem2Reg  | RegWrite  | MemRead  | MemWrite  |
 addi $t0, $t0, 10  | 0  | 1  | 0  | 1  | 0  | 0  | 0  | 00
 sw $t0, 32($s0)  | x  |  1 | x  |  0 |  0 | 1  |  0 |  00
 bne $t2, $t0, QUIT  | x  | 0  | x  | 0  | 0  |  0 |  1 |  01
-xor $s0, $t1, $t2  |  1 | 0  |  x | 1  |  0 | 0  |  0 | 00
+xor $s0, $t1, $t2  |  1 | 0  |  x | 1  |  0 | 0  |  0 | 10
 j Print  |  x | x  |  x | 0  | 0  | 0  |  0 |  00
 ## Assignment 2
 This assignment refers to the following instructions:  
@@ -64,7 +64,7 @@ bne $t0, $zero, loop
 
 1. It would take **14 cycles** for the code to run without handling hazards.
 
-2. I was not able to finish this. 
+2. I was not able to finish this.
 
 3. Program rewritten using NOP instructions:
 
