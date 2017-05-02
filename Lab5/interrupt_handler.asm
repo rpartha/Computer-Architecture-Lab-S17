@@ -1,35 +1,3 @@
-# Lab 5
-
-## Introduction
-
-This lab serves to introduce us to the topics of exceptions and interrupts, and how to handle interrupts. Exceptions are events that are scheduled out of order that disrupt the program (edit the control flow). Interrupts are specific exceptions that occur from an external source.
-
-## Assignment 1
-
-__Description__: Observe the file "io.s" and record its output, making sure to note what goes on upon execution.
-
-Register  | Before  | After
-:--:|:---:|:--:
-PC  | 0  |  4000bc
-EPC  | 0  | 4000bc
-Cause  | 0  | 4
-BadVAddr  | 0  | 0
-Status  | 3000ff10  | 3000ff11
-
-The program infinite-loops when running via single-step. The cause register is a starts off at 400. The status register starts off at 0X3000ff10. This means that the last bit is a 0, which means that all interrupts are disabled. While entering the first three words, it still goes into an infinite loop. When entering the next three words, it doesn’t go into that infinite loop.
-
-Basically, when entering the words one
-by one, while entering the first 3 words, it uses polling. While entering the next 3 words, it uses interrupts.
-
-The difference between polling and interrupts are that in polling, the CPU constantly needs to read the keyboard latch memory location to see if a key is pressed. This makes it very inefficient.
-
-Interrupt driven I/O is when the keyboard alerts the CPU of a key-press. Tasks can be concurrently performed this way, making it more efficient.
-
-## Assignment 2
-
-__Description__: We wish to modify assignment 1 such that an interrupt handler will handle the event of a user initiating a keystroke which should generate a random integer. An attempt to try this is given below in the code below (also seen in interrupt_handler.asm)
-
-```MIPS
 .data
 
 prompt: .asciiz "SPIM IO Test.\n Please type 6 input lines:\n"
@@ -157,8 +125,3 @@ other_str: .asciiz "Non-interrupt exception\n"
 no_recv_str: .asciiz "Receiver not ready\n"
 no_trans_str: .asciiz "Transmitter not ready\n"
 bad_int_str: .asciiz "Unknown interrupt\n"
-```
-
-## Conclusion
-
-In this lab, I learned the strict difference between interrupts and exceptions, although they are very much related, as well as how to create my own interrupt handler, even if that portion is incomplete.

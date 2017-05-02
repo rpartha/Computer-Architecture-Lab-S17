@@ -161,4 +161,4 @@ bad_int_str: .asciiz "Unknown interrupt\n"
 
 ## Conclusion
 
-In this lab, I learned the strict difference between interrupts and exceptions, although they are very much related, as well as how to create my own interrupt handler, even if that portion is incomplete.
+In this lab, I learned the strict difference between interrupts and exceptions, although they are very much related, as well as how to create my own interrupt handler, even if that portion is incomplete. 
