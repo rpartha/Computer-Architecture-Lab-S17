@@ -1,18 +1,6 @@
-## Perform vector multiplication of vector A and matrix B, and store the result into vector C
-#  s1: holds vector A
-#  s2: holds matrix B
-#  s3: holds vector C
-#  t1: holds i
-#  t2: holds j
-#  t3: holds sum
-#  t4: holds A[j]
-#  t5: holds B[i][j]
-#  t6: holds LO
-#  t7: holds 4
-
 .data 0x10000860
 Vector_A:
-  .word 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+ .word 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
  .data 0x1000A000
 Matrix_B: .word 26 27 28 29 30
  .data 0x1000A100
@@ -59,12 +47,12 @@ main:
 			syscall
 
 			addi $t1, $t1, 1
-			beq $t1, 5, break_outer
+			beq $t1, 5, END #i==5 --> END
 
 			li $v0, 4
 			syscall
 			j outer
 
-	break_outer:
+	END:
 		li $v0, 10
 		syscall
